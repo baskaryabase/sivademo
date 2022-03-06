@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const Test = () => {
+  const [state, setState] = useState({ show: true })
+  return (
+    <React.StrictMode>
+      <button onClick={() => setState({ show: !state.show })}>state</button>
+      {state.show === true ? <App /> : null}
+    </React.StrictMode>
+  )
+}
+ReactDOM.render(<Test />
+  ,
   document.getElementById('root')
 );
 
